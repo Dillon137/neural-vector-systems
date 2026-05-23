@@ -1,6 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+
+const LOGO = {
+  src: "/images/branding/logo.png",
+  width: 1402,
+  height: 699,
+} as const;
 
 const footerLinks = {
   Company: [
@@ -43,16 +50,19 @@ export default function Footer() {
         >
           {/* Brand column */}
           <div>
-            <div style={{
-              fontFamily: "var(--font-syne), sans-serif",
-              fontWeight: 700,
-              fontSize: "1.1rem",
-              letterSpacing: "0.08em",
-              marginBottom: "0.5rem",
-            }}>
-              <span className="gradient-text">NEURAL VECTOR</span>
-              <span style={{ color: "rgba(226,232,240,0.5)", marginLeft: "0.3rem" }}>SYSTEMS</span>
-            </div>
+            <Link href="/" style={{ display: "inline-block", marginBottom: "1rem" }}>
+              <Image
+                src={LOGO.src}
+                alt="Neural Vector Systems"
+                width={LOGO.width}
+                height={LOGO.height}
+                style={{
+                  height: "44px",
+                  width: "auto",
+                  maxWidth: "260px",
+                }}
+              />
+            </Link>
             <p style={{
               color: "rgba(226,232,240,0.45)",
               fontSize: "0.85rem",

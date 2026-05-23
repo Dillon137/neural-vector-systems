@@ -2,7 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
+
+const LOGO = {
+  src: "/images/branding/logo.png",
+  width: 1402,
+  height: 699,
+} as const;
 
 const navLinks = [
   { label: "Services", href: "/services" },
@@ -53,60 +60,19 @@ export default function Navbar() {
         }}
       >
         {/* Logo */}
-        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.75rem" }}>
-          <div style={{
-            width: "36px",
-            height: "36px",
-            position: "relative",
-          }}>
-            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="18" cy="10" r="2.5" fill="#00D4FF" opacity="0.9"/>
-              <circle cx="8" cy="16" r="2" fill="#7B5CF0" opacity="0.9"/>
-              <circle cx="28" cy="16" r="2" fill="#7B5CF0" opacity="0.9"/>
-              <circle cx="12" cy="26" r="2" fill="#0EA5E9" opacity="0.8"/>
-              <circle cx="24" cy="26" r="2" fill="#0EA5E9" opacity="0.8"/>
-              <circle cx="18" cy="20" r="1.5" fill="#A78BFA" opacity="0.7"/>
-              <line x1="18" y1="10" x2="8" y2="16" stroke="url(#g1)" strokeWidth="0.8" opacity="0.6"/>
-              <line x1="18" y1="10" x2="28" y2="16" stroke="url(#g1)" strokeWidth="0.8" opacity="0.6"/>
-              <line x1="8" y1="16" x2="18" y2="20" stroke="url(#g1)" strokeWidth="0.8" opacity="0.5"/>
-              <line x1="28" y1="16" x2="18" y2="20" stroke="url(#g1)" strokeWidth="0.8" opacity="0.5"/>
-              <line x1="18" y1="20" x2="12" y2="26" stroke="url(#g1)" strokeWidth="0.8" opacity="0.5"/>
-              <line x1="18" y1="20" x2="24" y2="26" stroke="url(#g1)" strokeWidth="0.8" opacity="0.5"/>
-              <line x1="12" y1="26" x2="30" y2="30" stroke="url(#g2)" strokeWidth="1" opacity="0.8"/>
-              <polygon points="30,30 27,27 27,33" fill="#00D4FF" opacity="0.9"/>
-              <defs>
-                <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#00D4FF"/>
-                  <stop offset="100%" stopColor="#7B5CF0"/>
-                </linearGradient>
-                <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#7B5CF0"/>
-                  <stop offset="100%" stopColor="#00D4FF"/>
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-          <div>
-            <div style={{
-              fontFamily: "var(--font-syne), sans-serif",
-              fontWeight: 700,
-              fontSize: "0.95rem",
-              letterSpacing: "0.08em",
-              color: "#E2E8F0",
-              lineHeight: 1.1,
-            }}>
-              NEURAL VECTOR
-            </div>
-            <div style={{
-              fontFamily: "var(--font-ibm-mono), monospace",
-              fontSize: "0.6rem",
-              letterSpacing: "0.25em",
-              color: "rgba(0,212,255,0.7)",
-              lineHeight: 1,
-            }}>
-              SYSTEMS
-            </div>
-          </div>
+        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+          <Image
+            src={LOGO.src}
+            alt="Neural Vector Systems"
+            width={LOGO.width}
+            height={LOGO.height}
+            priority
+            style={{
+              height: "48px",
+              width: "auto",
+              maxWidth: "min(280px, 55vw)",
+            }}
+          />
         </Link>
 
         {/* Desktop Nav */}

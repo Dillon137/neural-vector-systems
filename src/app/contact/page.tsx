@@ -9,7 +9,7 @@ const bottlenecks = [
   "Intelligent Automation & Agentic Pipelines",
   "Data Engineering & Cloud Infrastructure",
   "Industrial Computer Vision & Signal Processing",
-  "MLOps & Systems Resilience",
+  "Production Systems & Resilience",
   "Custom Engineering / Not Sure Yet",
 ];
 
@@ -33,7 +33,7 @@ export default function ContactPage() {
   return (
     <div style={{ background: "var(--c-obsidian)", paddingTop: "72px" }}>
       {/* Header */}
-      <section style={{
+      <section className="section-x" style={{
         padding: "5rem 2rem 4rem",
         borderBottom: "1px solid rgba(0,212,255,0.07)",
         position: "relative",
@@ -70,8 +70,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section style={{ padding: "4rem 2rem" }}>
-        <div style={{
+      <section className="section-x" style={{ padding: "4rem 2rem" }}>
+        <div className="stack-below-md stack-below-md--gap-2" style={{
           maxWidth: "1280px",
           margin: "0 auto",
           display: "grid",
@@ -178,7 +178,7 @@ export default function ContactPage() {
                   Inquiry Form
                 </h2>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem", marginBottom: "1.25rem" }}>
+                <div className="stack-below-md" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem", marginBottom: "1.25rem" }}>
                   {[
                     { label: "Full Name", key: "name", placeholder: "Your name", type: "text" },
                     { label: "Company", key: "company", placeholder: "Organization name", type: "text" },

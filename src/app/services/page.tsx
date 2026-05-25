@@ -9,16 +9,15 @@ const services = [
     title: "Mathematical Optimization & Operations Research",
     tagline: "Eliminate Operational Guesswork. Protect Margins.",
     description:
-      "Neural Vector Systems designs custom mathematical engines to resolve complex operational constraints—removing guesswork from scheduling, pricing, and distribution. Our OR frameworks model real-world complexity as solvable equations, delivering decisions that balance competing constraints at machine speed.",
+      "Neural Vector Systems designs optimization engines that remove guesswork from scheduling, pricing, and distribution. We model real-world constraints so teams can make faster, more consistent decisions in daily operations.",
     builds: [
       "Linear and integer programming models for scheduling and resource allocation",
       "Heuristic routing frameworks for multi-stop, multi-constraint logistics networks",
       "Real-time dynamic pricing engines with demand-sensitivity parameters",
-      "Constraint-aware fleet optimization with SLA enforcement",
+      "Constraint-aware fleet optimization with delivery commitments enforced",
     ],
     integration: "Seamless integration with ERP systems (SAP, Oracle, NetSuite) via secure REST APIs and event-driven pipelines.",
     yield: "Instantaneous reduction in resource waste, maximized asset utilization, and guaranteed margin protection. Validated at a 17% logistics margin uplift across complex fulfillment networks.",
-    tech: ["Python", "PuLP", "OR-Tools", "CPLEX", "Gurobi"],
   },
   {
     id: "ml",
@@ -36,7 +35,6 @@ const services = [
     ],
     integration: "Model outputs integrated into existing dashboards (Tableau, Looker, custom React frontends) and operational workflows via standardized API endpoints.",
     yield: "High-accuracy event prediction with documented precision-recall tradeoffs, enabling data-driven decisions that reduce false positives in critical operational contexts.",
-    tech: ["PyTorch", "scikit-learn", "XGBoost", "Statsmodels", "MLflow"],
   },
   {
     id: "automation",
@@ -45,16 +43,15 @@ const services = [
     title: "Intelligent Automation & Agentic Pipelines",
     tagline: "Autonomous Workflows. Zero Manual Overhead.",
     description:
-      "Enterprise-scale document intelligence, process automation, and agentic orchestration systems that execute complex multi-step workflows without human intervention. We build systems that reason, retrieve, verify, and act—not just classify.",
+      "Enterprise document intelligence, process automation, and agentic orchestration that executes multi-step workflows with minimal manual effort. These systems retrieve, verify, and route decisions with full auditability.",
     builds: [
       "Production RAG systems with enterprise knowledge bases and hybrid retrieval",
-      "LangGraph agentic workflows for multi-step document processing and verification",
+      "Agentic workflows for multi-step document processing and verification",
       "OCR ingestion pipelines with structured extraction and database reconciliation",
       "Automated risk scoring and compliance flagging for regulatory workflows",
     ],
     integration: "Full integration with existing document management systems, SharePoint, ERP platforms, and custom databases via secure, auditable pipelines.",
     yield: "10+ operational hours saved per week per branch. Error rates drop by an order of magnitude versus manual processing. Staff refocused on higher-value decision-making.",
-    tech: ["LangChain", "LangGraph", "OpenAI", "Anthropic Claude", "Tesseract", "FastAPI"],
   },
   {
     id: "data",
@@ -65,14 +62,13 @@ const services = [
     description:
       "Machine learning is only as good as the data it consumes. We architect the end-to-end data infrastructure that makes production ML possible: ingestion, transformation, warehousing, governance, and API serving—built for auditability, scale, and enterprise security standards.",
     builds: [
-      "Scalable ETL/ELT pipelines with automated validation and anomaly alerting",
+      "Scalable data pipelines with automated validation and anomaly alerting",
       "Cloud data warehouse architecture on Snowflake and BigQuery with dbt transformation layers",
       "Secure API integrations with SAP, Salesforce, Oracle, and custom ERPs",
       "Data lineage tracking, PII masking, and HIPAA/SOC2-compatible governance frameworks",
     ],
     integration: "Modular pipeline design supports incremental migration from legacy on-premises systems with zero production downtime via blue-green deployment strategies.",
     yield: "A single source of truth for enterprise analytics. Downstream ML models trained on clean, governed data with documented provenance—dramatically reducing debugging and compliance overhead.",
-    tech: ["dbt", "Apache Airflow", "Snowflake", "BigQuery", "PostgreSQL", "Kafka"],
   },
   {
     id: "vision",
@@ -83,23 +79,22 @@ const services = [
     description:
       "High-performance image processing and signal analysis systems for industrial quality control, automated inspection, and real-time tracking—optimized for edge deployment on commodity hardware. We apply rigorous signal processing mathematics to solve problems that commodity ML models cannot.",
     builds: [
-      "Fourier transform and Wiener filter deblurring arrays for tracking code recovery",
+      "Advanced deblurring pipelines for high-speed tracking code recovery",
       "Real-time quality inspection pipelines for high-velocity production lines",
       "Defect classification and anomaly detection on manufacturing imagery",
       "Edge-optimized inference systems for low-latency factory automation",
     ],
     integration: "Compatible with standard industrial camera APIs (Basler, FLIR, Hikvision) and SCADA/MES system integrations for closed-loop automated quality gating.",
     yield: "80% reduction in hardware implementation overhead by enabling commodity cameras to perform at specialized-camera quality. Automation of formerly manual QA inspection workflows.",
-    tech: ["OpenCV", "PyTorch", "NumPy/SciPy", "ONNX Runtime", "TensorRT"],
   },
   {
     id: "mlops",
     icon: Layers,
     color: "#7B5CF0",
-    title: "MLOps & Systems Resilience",
+    title: "Production Systems & Resilience",
     tagline: "Production Stability. Continuous Performance.",
     description:
-      "Deploying a model is one step. Keeping it performing at enterprise scale is the engineering challenge. Our MLOps frameworks establish the instrumentation, automation, and governance layer that separates data science prototypes from production-grade ML infrastructure.",
+      "Deploying a model is one step. Keeping it reliable at enterprise scale is the larger engineering challenge. Our production operations framework adds instrumentation, automation, and governance so systems stay stable over time.",
     builds: [
       "Containerized model serving with Docker and Kubernetes for elastic scaling",
       "CI/CD pipelines with automated model regression testing and staged rollouts",
@@ -108,7 +103,6 @@ const services = [
     ],
     integration: "Platform-agnostic design targeting AWS SageMaker, GCP Vertex AI, and Azure ML with unified observability via Grafana and custom monitoring dashboards.",
     yield: "Sustained model performance across production data distribution shifts. Reduced mean-time-to-resolution for model failures. Operational teams with full visibility into system health.",
-    tech: ["Docker", "Kubernetes", "GitHub Actions", "AWS SageMaker", "Vertex AI", "Grafana"],
   },
 ];
 
@@ -116,7 +110,7 @@ export default function ServicesPage() {
   return (
     <div style={{ background: "var(--c-obsidian)", paddingTop: "72px" }}>
       {/* Header */}
-      <section style={{
+      <section className="section-x" style={{
         padding: "5rem 2rem 4rem",
         borderBottom: "1px solid rgba(0,212,255,0.07)",
         position: "relative",
@@ -155,7 +149,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services */}
-      <section style={{ padding: "4rem 2rem" }}>
+      <section className="section-x" style={{ padding: "4rem 2rem" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "3rem" }}>
           {services.map((svc, i) => (
             <div
@@ -168,7 +162,7 @@ export default function ServicesPage() {
                 borderLeft: `3px solid ${svc.color}`,
               }}
             >
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "start" }}>
+              <div className="stack-below-md stack-below-md--gap-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "start" }}>
                 {/* Left */}
                 <div>
                   <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
@@ -279,21 +273,6 @@ export default function ServicesPage() {
                     </p>
                   </div>
 
-                  <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap" }}>
-                    {svc.tech.map((t) => (
-                      <span key={t} style={{
-                        fontFamily: "var(--font-ibm-mono), monospace",
-                        fontSize: "0.58rem",
-                        letterSpacing: "0.08em",
-                        color: "rgba(226,232,240,0.35)",
-                        padding: "3px 8px",
-                        border: "1px solid rgba(255,255,255,0.06)",
-                        borderRadius: "2px",
-                      }}>
-                        {t}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               </div>
             </div>
@@ -302,7 +281,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: "5rem 2rem", textAlign: "center" }}>
+      <section className="section-x" style={{ padding: "5rem 2rem", textAlign: "center" }}>
         <span className="section-label">Start Here</span>
         <h2 style={{
           fontFamily: "var(--font-syne), sans-serif",

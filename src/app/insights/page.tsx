@@ -8,40 +8,40 @@ const articles = [
     id: "linear-optimization-logistics",
     tag: "Operations Research",
     tagColor: "#00D4FF",
-    title: "Scaling Linear Optimization Models for Complex Logistics Frameworks",
+    title: "How Logistics Teams Keep Route Decisions Fast at Scale",
     excerpt:
-      "Standard LP solvers hit performance walls when route networks exceed a few hundred nodes. This guide covers warm-start initialization, constraint decomposition, and branch-and-bound tuning strategies that keep solve times under 5 seconds at enterprise scale.",
+      "A practical guide to keeping optimization runtimes low as route networks grow, including model setup patterns and deployment guardrails that support real-time dispatch.",
     date: "2024-11",
     readTime: "12 min",
-    topics: ["Linear Programming", "Logistics", "OR-Tools", "Performance"],
+    topics: ["Logistics", "Optimization", "Performance", "Operations"],
   },
   {
     id: "edge-computer-vision",
     tag: "Computer Vision",
     tagColor: "#7B5CF0",
-    title: "Edge-Based Computer Vision: Real-Time Image Restoration Without Heavy Hardware Overhead",
+    title: "Improving Camera Read Accuracy Without Expensive Hardware",
     excerpt:
-      "Deploying Fourier-domain deblurring and Wiener filter deconvolution on standard industrial edge compute. A practical guide to achieving specialized-camera-quality read rates on commodity hardware at production line speed.",
+      "How to deploy image restoration on standard edge hardware so production lines can improve tracking accuracy without replacing camera infrastructure.",
     date: "2024-10",
     readTime: "15 min",
-    topics: ["Computer Vision", "Signal Processing", "Edge AI", "Manufacturing"],
+    topics: ["Computer Vision", "Manufacturing", "Edge Deployment", "Quality Control"],
   },
   {
     id: "langgraph-document-pipelines",
     tag: "Intelligent Automation",
     tagColor: "#0EA5E9",
-    title: "Deploying LangGraph Orchestrators to Automate Multi-Vendor Document Parsing Pipelines",
+    title: "Building Reliable Agentic Document Processing Pipelines",
     excerpt:
-      "A production architecture for LangGraph-based document intelligence: layout-aware extraction, agentic verification against database records, and exception routing with full audit trails. Includes handling for document format drift over time.",
+      "A production blueprint for agentic document workflows: extraction, record verification, exception routing, and audit trails that hold up as vendor formats change.",
     date: "2024-09",
     readTime: "18 min",
-    topics: ["LangGraph", "LLM", "OCR", "Enterprise Automation"],
+    topics: ["Enterprise Automation", "Agentic Workflows", "OCR", "Document Operations"],
   },
   {
     id: "hipaa-data-warehouse",
     tag: "Data Engineering",
     tagColor: "#A78BFA",
-    title: "Architecting HIPAA and Enterprise-Compliant Data Warehouses for Sensitive Analytics",
+    title: "Designing HIPAA-Compliant Data Platforms for Sensitive Analytics",
     excerpt:
       "A practical framework for building HIPAA-compliant Snowflake environments: column-level security, dynamic data masking, audit logging, and governance controls that satisfy both compliance teams and data scientists.",
     date: "2024-08",
@@ -52,18 +52,18 @@ const articles = [
     id: "mlops-drift-detection",
     tag: "MLOps",
     tagColor: "#00D4FF",
-    title: "Statistical Drift Detection for Production ML Models: Beyond Accuracy Monitoring",
+    title: "Catching Model Drift Before Business Metrics Slip",
     excerpt:
-      "Accuracy metrics are lagging indicators. This piece covers PSI, KS-tests, and multivariate drift detection approaches that catch distribution shift before it degrades business-critical predictions—with Grafana alerting integration.",
+      "Why leading indicators matter in production monitoring, and how teams set up practical alerts before drift impacts forecasts or operational decisions.",
     date: "2024-07",
     readTime: "10 min",
-    topics: ["MLOps", "Model Monitoring", "Statistics", "Grafana"],
+    topics: ["MLOps", "Model Monitoring", "Operations", "Grafana"],
   },
   {
     id: "fermentation-ml",
     tag: "Process Manufacturing",
     tagColor: "#7B5CF0",
-    title: "Time-Series ML for Fermentation Curve Modeling: From Batch Data to Predictive Control",
+    title: "Turning Fermentation Batch Data Into Predictive Process Control",
     excerpt:
       "Brewing and fermentation generate rich multivariate time-series data. This guide covers sensor normalization, non-linear regression approaches for curve fitting, and anomaly detection thresholds calibrated for batch process variability.",
     date: "2024-06",
@@ -76,7 +76,7 @@ export default function InsightsPage() {
   return (
     <div style={{ background: "var(--c-obsidian)", paddingTop: "72px" }}>
       {/* Header */}
-      <section style={{
+      <section className="section-x" style={{
         padding: "5rem 2rem 4rem",
         borderBottom: "1px solid rgba(0,212,255,0.07)",
         position: "relative",
@@ -114,9 +114,9 @@ export default function InsightsPage() {
       </section>
 
       {/* Featured article */}
-      <section style={{ padding: "3rem 2rem 0" }}>
+      <section className="section-x" style={{ padding: "3rem 2rem 0" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <div className="glass-card" style={{
+          <div className="glass-card stack-below-md stack-below-md--gap-2" style={{
             padding: "3rem",
             borderRadius: "4px",
             borderTop: `2px solid #00D4FF`,
@@ -173,7 +173,7 @@ export default function InsightsPage() {
                 Read Article <ArrowRight size={16} />
               </Link>
             </div>
-            <div style={{ textAlign: "right", minWidth: "120px" }}>
+            <div style={{ textAlign: "right", minWidth: "auto" }}>
               <div style={{
                 fontFamily: "var(--font-ibm-mono), monospace",
                 fontSize: "0.65rem",
@@ -197,9 +197,9 @@ export default function InsightsPage() {
       </section>
 
       {/* Article grid */}
-      <section style={{ padding: "3rem 2rem 5rem" }}>
+      <section className="section-x" style={{ padding: "3rem 2rem 5rem" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "1rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 320px), 1fr))", gap: "1rem" }}>
             {articles.slice(1).map((article) => (
               <article key={article.id} className="glass-card" style={{ padding: "2rem", borderRadius: "4px", display: "flex", flexDirection: "column" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem" }}>

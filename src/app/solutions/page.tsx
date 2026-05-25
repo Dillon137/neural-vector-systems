@@ -8,7 +8,7 @@ const solutions = [
     color: "#00D4FF",
     tag: "Life Sciences & Healthcare",
     title: "Predictive Intelligence for Clinical & Scientific Data",
-    intro: "Biological data is among the most complex, high-dimensional, and high-stakes data in existence. Neural Vector Systems brings production-grade ML and signal processing to life sciences organizations that need more than research-grade notebooks.",
+    intro: "Life sciences data is complex and high-stakes. Neural Vector Systems delivers predictive systems and signal analysis built for real clinical operations, not one-off research demos.",
     challenges: [
       "Multi-omics and biometric data with extreme dimensionality and noise",
       "Irregular time-series from clinical instrumentation and wearable sensors",
@@ -16,7 +16,7 @@ const solutions = [
       "Slow computational pipelines limiting real-time clinical decision support",
     ],
     approaches: [
-      "Fourier-domain signal denoising for high-frequency biometric telemetry",
+      "Signal denoising for high-frequency biometric telemetry",
       "Multi-stage ML classification with calibrated confidence outputs",
       "Secure, HIPAA-compliant data warehouse architecture on audited cloud platforms",
       "Clinical alert APIs integrated directly into existing EHR/LIMS workflows",
@@ -29,20 +29,20 @@ const solutions = [
     color: "#7B5CF0",
     tag: "Logistics & Supply Chain",
     title: "Margin Optimization for Complex Fulfillment Networks",
-    intro: "Logistics margins are eroded by combinatorial complexity that exceeds human cognitive capacity. Linear programming engines and real-time optimization frameworks convert this complexity into a competitive moat.",
+    intro: "Logistics margins are often eroded by decision complexity that manual dispatch cannot keep up with. Real-time optimization converts that complexity into a measurable advantage.",
     challenges: [
       "Dynamic carrier pricing creating unpredictable cost exposure on long-haul routes",
-      "Competing constraints between fuel efficiency, SLA compliance, and load optimization",
+      "Competing constraints between fuel efficiency, delivery commitments, and load optimization",
       "Supply chain variability causing downstream cascading delays",
       "Manual dispatch decisions leaving significant optimization headroom unexplored",
     ],
     approaches: [
-      "Custom integer linear programming models encoding physical and contractual constraints",
+      "Custom optimization models encoding physical and contractual constraints",
       "Real-time carrier rate API integration for live cost optimization",
       "Heuristic routing frameworks for multi-depot, multi-stop network optimization",
       "ERP-integrated dispatch recommendation engine with human override controls",
     ],
-    outcome: "Validated 17% margin uplift with zero SLA degradation. Dispatch decisions shifted from heuristic to mathematically optimal.",
+    outcome: "Validated 17% margin uplift with no delivery commitment degradation. Dispatch decisions shifted from manual heuristics to optimized recommendations.",
   },
   {
     id: "manufacturing",
@@ -71,7 +71,7 @@ const solutions = [
     color: "#A78BFA",
     tag: "Enterprise Operations",
     title: "Intelligent Automation for Document-Heavy Workflows",
-    intro: "Enterprise organizations lose thousands of hours annually to manual document processing, data transcription, and reconciliation tasks that are structurally automatable. Agentic AI pipelines eliminate this overhead while improving accuracy.",
+    intro: "Enterprise organizations lose thousands of hours annually to manual document processing, data transcription, and reconciliation tasks. Agentic automation pipelines eliminate this overhead while improving accuracy.",
     challenges: [
       "High-volume, variable-format vendor documents requiring manual data entry",
       "ERP integration gaps creating reconciliation overhead and error propagation",
@@ -80,7 +80,7 @@ const solutions = [
     ],
     approaches: [
       "Layout-aware OCR with adaptive extraction for variable document structures",
-      "LangGraph verification agents cross-referencing extractions against database records",
+      "Agentic verification checks that cross-reference extracted fields against database records",
       "Secure ERP write integrations with full audit trails and exception queuing",
       "Automated compliance flagging with risk-scoring for exception routing",
     ],
@@ -92,7 +92,7 @@ export default function SolutionsPage() {
   return (
     <div style={{ background: "var(--c-obsidian)", paddingTop: "72px" }}>
       {/* Header */}
-      <section style={{
+      <section className="section-x" style={{
         padding: "5rem 2rem 4rem",
         borderBottom: "1px solid rgba(0,212,255,0.07)",
         position: "relative",
@@ -130,7 +130,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* Solutions */}
-      <section style={{ padding: "4rem 2rem" }}>
+      <section className="section-x" style={{ padding: "4rem 2rem" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "3rem" }}>
           {solutions.map((sol) => (
             <div
@@ -188,7 +188,7 @@ export default function SolutionsPage() {
 
               <div className="glow-line" style={{ marginBottom: "2rem" }} />
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2.5rem" }}>
+              <div className="stack-below-md stack-below-md--gap-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2.5rem" }}>
                 <div>
                   <div style={{
                     fontFamily: "var(--font-ibm-mono), monospace",
@@ -258,7 +258,7 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      <section style={{ padding: "5rem 2rem", textAlign: "center" }}>
+      <section className="section-x" style={{ padding: "5rem 2rem", textAlign: "center" }}>
         <h2 style={{
           fontFamily: "var(--font-syne), sans-serif",
           fontWeight: 700,

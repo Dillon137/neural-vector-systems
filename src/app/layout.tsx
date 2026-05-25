@@ -6,15 +6,15 @@ import Footer from "@/components/layout/Footer";
 export const metadata: Metadata = {
   title: "Neural Vector Systems | AI, Optimization & Data Systems Consulting",
   description:
-    "Enterprise-grade machine learning, mathematical optimization, and data engineering for complex operational challenges. Neural Vector Systems engineers production-grade intelligent systems for logistics, life sciences, and process manufacturing.",
+    "Neural Vector Systems designs and deploys predictive systems, optimization engines, and cloud data platforms for complex operational challenges in logistics, life sciences, and process manufacturing.",
   keywords: [
     "AI consulting",
-    "machine learning engineering",
-    "operations research",
-    "data pipeline architecture",
-    "predictive analytics",
-    "MLOps",
-    "enterprise AI",
+    "predictive systems",
+    "operations optimization",
+    "cloud data engineering",
+    "data platform architecture",
+    "CI/CD deployment",
+    "enterprise automation",
   ],
   openGraph: {
     title: "Neural Vector Systems",

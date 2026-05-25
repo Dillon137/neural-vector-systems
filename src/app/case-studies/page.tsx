@@ -12,9 +12,9 @@ const caseStudies = [
       "A global instrumentation provider was unable to extract actionable predictive intelligence from high-volume biometric data streams, limiting their platform's clinical decision support capabilities and stalling enterprise sales cycles.",
     bottleneck:
       "Raw sensor telemetry contained significant noise, multi-modal distributions, and irregular sampling intervals—making standard ML pipelines produce unreliable predictions with unacceptable false-positive rates.",
-    architecture: ["Raw Sensor Telemetry → Fourier Denoising Layer → Feature Engineering → Multi-Stage Gradient Boost Classifier → Confidence Calibration → Clinical Alert API"],
+    architecture: ["Sensor data ingestion → noise cleanup → feature engineering → predictive scoring → confidence checks → clinical alert delivery"],
     solution:
-      "Deployed a multi-stage signal processing pipeline combining Fourier-based denoising with Wiener filtering before feature extraction. A stacked gradient boosting architecture with Platt scaling delivered calibrated probability outputs with documented precision-recall tradeoffs across clinical severity tiers.",
+      "Built a multi-stage signal cleanup and prediction pipeline before feature extraction. The system outputs calibrated confidence scores that clinical teams can use with clear precision-recall tradeoffs by severity tier.",
     metric: "94%",
     metricLabel: "Prediction Accuracy",
     outcomes: [
@@ -28,18 +28,18 @@ const caseStudies = [
     tag: "Logistics & Supply Chain",
     tagColor: "#7B5CF0",
     client: "Mid-Market Regional Freight & Fulfillment Operator",
-    title: "Constraint-Aware LP Margin Optimization Engine",
+    title: "Constraint-Aware Margin Optimization Engine",
     executiveSummary:
-      "A regional logistics operator was experiencing persistent margin compression on line-haul routes due to the complexity of simultaneously optimizing fuel costs, carrier rate volatility, weight constraints, and delivery SLA commitments—a problem beyond the resolution of manual dispatch tools.",
+      "A regional logistics operator was experiencing persistent margin compression on line-haul routes due to the complexity of simultaneously optimizing fuel costs, carrier rate volatility, weight constraints, and delivery commitments—a problem beyond the resolution of manual dispatch tools.",
     bottleneck:
       "Dispatch decisions were made heuristically by experienced operators, leaving significant optimization headroom unexplored. The combinatorial complexity of 50+ active routes with dynamic variables exceeded human cognitive bandwidth.",
-    architecture: ["Live Rate Feed → Constraint Parser → LP Solver (Branch & Bound) → Sensitivity Analysis → Dispatch Recommendation Engine → ERP Integration"],
+    architecture: ["Live rate feed → constraints processing → optimization run → scenario analysis → dispatch recommendation → ERP integration"],
     solution:
-      "Constructed a custom integer linear programming model encoding physical route constraints, fuel overhead functions, real-time carrier pricing APIs, and SLA penalty terms as a unified optimization objective. Branch-and-bound solving with warm-start initialization delivers dispatch recommendations in under 3 seconds.",
+      "Constructed a custom optimization model covering route constraints, fuel overhead, real-time carrier pricing, and delivery penalties in one objective. The system generates dispatch recommendations in under 3 seconds.",
     metric: "+17%",
     metricLabel: "Margin Uplift",
     outcomes: [
-      "17% margin uplift across optimized route network with zero SLA violations",
+      "17% margin uplift across optimized route network with zero delivery commitment violations",
       "Dynamic real-time re-optimization on rate change events and load modifications",
       "Full ERP integration enabling automated dispatch workflow with human override controls",
     ],
@@ -54,9 +54,9 @@ const caseStudies = [
       "Accounts payable teams across multiple branches were spending 10+ hours per week manually transcribing variable-format vendor invoices, purchase orders, and regulatory documents into ERP systems—with error rates creating downstream reconciliation overhead.",
     bottleneck:
       "Vendor document formats varied significantly. Traditional template-based OCR tools achieved only 60-70% field extraction accuracy on unstructured layouts, requiring heavy manual review. No existing solution handled cross-document verification against database records.",
-    architecture: ["Document Intake → Layout Analysis → Adaptive OCR Extraction → LangGraph Verification Agent → Database Reconciliation → ERP Write API → Audit Log"],
+    architecture: ["Document intake → layout analysis → OCR extraction → agentic verification → database reconciliation → ERP writeback → audit log"],
     solution:
-      "Built a LangGraph multi-agent orchestration system combining layout-aware document analysis, adaptive OCR extraction, and a verification agent that cross-references extracted data against purchase orders and vendor master records before committing to the ERP. Discrepancy cases are routed to human review with pre-populated correction interfaces.",
+      "Built an agentic orchestration system combining layout-aware document analysis, adaptive OCR extraction, and verification against purchase orders and vendor records before ERP writeback. Discrepancies are routed to human review with pre-populated correction fields.",
     metric: "10+ hrs",
     metricLabel: "Saved Per Week / Branch",
     outcomes: [
@@ -75,9 +75,9 @@ const caseStudies = [
       "A high-velocity production line relied on barcode and QR tracking codes for automated downstream logistics. Motion blur from line speed and vibration made codes unreadable with commodity camera hardware, forcing costly investments in specialized industrial cameras or unacceptable automation failure rates.",
     bottleneck:
       "Specialized industrial cameras capable of blur-free capture at the required line speed carried a 6-8x unit cost premium and required proprietary integration ecosystems. The client needed a software-defined solution deployable on existing hardware.",
-    architecture: ["Raw Frame Capture → Motion Blur Estimation → Fourier Transform → Wiener Filter Deconvolution → Morphological Enhancement → Code Detection → Tracking API"],
+    architecture: ["Raw frame capture → blur estimation → image restoration → visual enhancement → code detection → tracking API"],
     solution:
-      "Engineered an edge-deployed image restoration pipeline using Fourier domain analysis to estimate point-spread functions from motion blur patterns, followed by regularized Wiener filter deconvolution and morphological sharpening. The pipeline runs in under 40ms per frame on standard industrial edge compute hardware.",
+      "Engineered an edge-deployed image restoration pipeline tuned for motion blur and production-line vibration. The pipeline runs in under 40ms per frame on standard industrial edge hardware.",
     metric: "−80%",
     metricLabel: "Hardware Cost Reduction",
     outcomes: [
@@ -92,7 +92,7 @@ export default function CaseStudiesPage() {
   return (
     <div style={{ background: "var(--c-obsidian)", paddingTop: "72px" }}>
       {/* Header */}
-      <section style={{
+      <section className="section-x" style={{
         padding: "5rem 2rem 4rem",
         borderBottom: "1px solid rgba(0,212,255,0.07)",
         position: "relative",
@@ -130,7 +130,7 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* Case Studies */}
-      <section style={{ padding: "4rem 2rem" }}>
+      <section className="section-x" style={{ padding: "4rem 2rem" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "3rem" }}>
           {caseStudies.map((cs) => (
             <article
@@ -211,7 +211,7 @@ export default function CaseStudiesPage() {
 
               <div className="glow-line" style={{ marginBottom: "2rem" }} />
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2.5rem" }}>
+              <div className="stack-below-md stack-below-md--gap-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2.5rem" }}>
                 {/* Left column */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "1.75rem" }}>
                   <div>
@@ -227,7 +227,7 @@ export default function CaseStudiesPage() {
                 {/* Right column */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "1.75rem" }}>
                   <div>
-                    <div className="section-label" style={{ marginBottom: "0.75rem" }}>Architecture Flow</div>
+                    <div className="section-label" style={{ marginBottom: "0.75rem" }}>Technical Approach</div>
                     <div style={{
                       background: "rgba(0,0,0,0.3)",
                       border: "1px solid rgba(0,212,255,0.08)",
@@ -280,7 +280,7 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: "5rem 2rem", textAlign: "center" }}>
+      <section className="section-x" style={{ padding: "5rem 2rem", textAlign: "center" }}>
         <h2 style={{
           fontFamily: "var(--font-syne), sans-serif",
           fontWeight: 700,

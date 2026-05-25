@@ -205,3 +205,24 @@ body::before {
   background: rgba(0, 212, 255, 0.2);
   color: #00D4FF;
 }
+
+/* Shared responsive layout helpers */
+.section-x {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+@media (max-width: 768px) {
+  .stack-below-md {
+    grid-template-columns: 1fr !important;
+  }
+
+  .stack-below-md--gap-2 {
+    gap: 2rem !important;
+  }
+
+  .section-x {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+}

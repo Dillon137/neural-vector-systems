@@ -4,28 +4,25 @@ import { ArrowRight } from "lucide-react";
 const stackCategories = [
   {
     id: "data",
-    label: "Data Ecosystem",
+    label: "Data Platforms",
     color: "#00D4FF",
     tools: [
-      { name: "Snowflake", desc: "Enterprise cloud data warehousing with near-unlimited concurrency and native semi-structured data support." },
-      { name: "Google BigQuery", desc: "Serverless, petabyte-scale analytics engine for large-volume ML feature pipelines and BI workloads." },
-      { name: "PostgreSQL", desc: "Production relational database for structured operational data, transactional systems, and ML feature stores." },
-      { name: "dbt", desc: "SQL-first transformation framework with built-in lineage tracking, testing, and documentation generation." },
-      { name: "Apache Airflow", desc: "Pipeline orchestration for complex multi-step ETL, ML training, and data quality workflows." },
-      { name: "Apache Kafka", desc: "Real-time event streaming for high-throughput sensor telemetry and operational data pipelines." },
+      { name: "Snowflake", desc: "Cloud data warehouse for secure analytics and governed reporting at enterprise scale." },
+      { name: "Google BigQuery", desc: "Managed analytics platform for large operational datasets and fast decision support." },
+      { name: "PostgreSQL", desc: "Reliable relational database for core business applications and transactional workloads." },
+      { name: "Apache Airflow", desc: "Workflow orchestration for scheduled data movement, quality checks, and reporting pipelines." },
+      { name: "Apache Kafka", desc: "Event streaming backbone for high-volume operational telemetry and real-time integrations." },
     ],
   },
   {
-    id: "ai",
-    label: "AI & Advanced Modeling",
+    id: "mlops",
+    label: "ML Operations",
     color: "#7B5CF0",
     tools: [
-      { name: "PyTorch", desc: "Deep learning framework for custom neural architectures, signal processing nets, and research-to-production workflows." },
-      { name: "scikit-learn", desc: "Battle-tested ML toolkit for classification, regression, clustering, and ensemble methods at production scale." },
-      { name: "XGBoost / LightGBM", desc: "Gradient boosting frameworks delivering state-of-the-art performance on structured tabular datasets." },
-      { name: "LangChain", desc: "LLM orchestration framework for RAG pipelines, tool-augmented agents, and document intelligence systems." },
-      { name: "LangGraph", desc: "Graph-based multi-agent orchestration for complex, multi-step document processing and verification workflows." },
-      { name: "OpenCV", desc: "Computer vision library for real-time image processing, Fourier deblurring, and production QA inspection arrays." },
+      { name: "AWS SageMaker", desc: "Managed model training and deployment with production monitoring and versioned releases." },
+      { name: "Vertex AI", desc: "Google Cloud managed platform for model lifecycle, deployment, and governed experimentation." },
+      { name: "MLflow", desc: "Model tracking and release management for repeatable experiments and controlled promotion to production." },
+      { name: "Grafana", desc: "Operational dashboards and alerts for service health, model performance, and deployment stability." },
     ],
   },
   {
@@ -33,23 +30,12 @@ const stackCategories = [
     label: "Cloud & Infrastructure",
     color: "#0EA5E9",
     tools: [
-      { name: "AWS", desc: "Primary cloud platform for scalable compute, S3 data lakes, SageMaker model serving, and Lambda event-driven pipelines." },
-      { name: "Google Cloud Platform", desc: "Vertex AI for managed ML workflows, BigQuery ML integration, and Cloud Run containerized inference." },
-      { name: "Docker", desc: "Containerization for reproducible model environments, consistent deployments, and portable pipeline packaging." },
-      { name: "Kubernetes", desc: "Container orchestration for auto-scaling inference services and resilient, zero-downtime production deployments." },
-      { name: "GitHub Actions CI/CD", desc: "Automated testing, model validation, container builds, and staged deployment pipelines on every commit." },
-      { name: "Terraform", desc: "Infrastructure-as-code for reproducible, auditable cloud environment provisioning and disaster recovery." },
-    ],
-  },
-  {
-    id: "languages",
-    label: "Languages & Query",
-    color: "#A78BFA",
-    tools: [
-      { name: "Python", desc: "Primary language for ML, data engineering, API development, and agentic pipeline orchestration." },
-      { name: "SQL", desc: "Core analytical and transformation language across all warehouse and database platforms." },
-      { name: "R", desc: "Statistical modeling, biostatistics, and experimental design analysis for life sciences applications." },
-      { name: "Bash / Shell", desc: "System automation, deployment scripting, and operational tooling." },
+      { name: "AWS", desc: "Scalable cloud environment for compute, storage, secure networking, and production operations." },
+      { name: "Google Cloud Platform", desc: "Cloud platform for containerized services, managed data systems, and enterprise integrations." },
+      { name: "Docker", desc: "Container packaging for consistent deployment behavior across development, staging, and production." },
+      { name: "Kubernetes", desc: "Container orchestration for resilient scaling, high availability, and rolling updates." },
+      { name: "GitHub Actions CI/CD", desc: "Automated build, test, and release pipelines on every approved change." },
+      { name: "Terraform", desc: "Infrastructure as code for repeatable cloud setup, governance, and disaster recovery planning." },
     ],
   },
 ];
@@ -65,7 +51,7 @@ const selectionPrinciples = [
   },
   {
     label: "Open Standards Where Possible",
-    desc: "ONNX for model portability, standard REST APIs for integrations, and SQL as the universal data transformation language minimize lock-in.",
+    desc: "Portable containers, standard APIs, and infrastructure as code keep deployments flexible and reduce vendor lock-in.",
   },
   {
     label: "Cost-Aware Architecture",
@@ -77,7 +63,7 @@ export default function TechnologiesPage() {
   return (
     <div style={{ background: "var(--c-obsidian)", paddingTop: "72px" }}>
       {/* Header */}
-      <section style={{
+      <section className="section-x" style={{
         padding: "5rem 2rem 4rem",
         borderBottom: "1px solid rgba(0,212,255,0.07)",
         position: "relative",
@@ -115,7 +101,7 @@ export default function TechnologiesPage() {
       </section>
 
       {/* Stack categories */}
-      <section style={{ padding: "4rem 2rem" }}>
+      <section className="section-x" style={{ padding: "4rem 2rem" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "3rem" }}>
           {stackCategories.map((cat) => (
             <div key={cat.id} id={cat.id}>
@@ -133,7 +119,7 @@ export default function TechnologiesPage() {
                 <div style={{ flex: 1, height: "1px", background: `linear-gradient(90deg, ${cat.color}30, transparent)` }} />
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "1rem" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 280px), 1fr))", gap: "1rem" }}>
                 {cat.tools.map((tool) => (
                   <div
                     key={tool.name}
@@ -182,7 +168,7 @@ export default function TechnologiesPage() {
       </section>
 
       {/* Selection principles */}
-      <section style={{ padding: "5rem 2rem", background: "rgba(7,14,28,0.6)" }}>
+      <section className="section-x" style={{ padding: "5rem 2rem", background: "rgba(7,14,28,0.6)" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ marginBottom: "3rem" }}>
             <span className="section-label">Why This Stack</span>
@@ -226,7 +212,7 @@ export default function TechnologiesPage() {
         </div>
       </section>
 
-      <section style={{ padding: "5rem 2rem", textAlign: "center" }}>
+      <section className="section-x" style={{ padding: "5rem 2rem", textAlign: "center" }}>
         <h2 style={{
           fontFamily: "var(--font-syne), sans-serif",
           fontWeight: 700,

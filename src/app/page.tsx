@@ -27,43 +27,37 @@ const capabilities = [
     icon: TrendingUp,
     label: "Optimization & Operations Research",
     description:
-      "Constraint-aware linear programming, scheduling engines, dynamic pricing models, and logistics network optimization that eliminate guesswork and protect margins.",
-    tags: ["Linear Programming", "Heuristic Routing", "Dynamic Pricing"],
+      "Constraint-aware optimization for scheduling, pricing, and logistics decisions that protect margin and reduce daily firefighting.",
   },
   {
     icon: Activity,
     label: "Machine Learning & Predictive Modeling",
     description:
-      "Multi-stage regression and classification pipelines, time-series forecasting, anomaly detection, and clinical-grade predictive arrays engineered for production.",
-    tags: ["Scikit-learn", "PyTorch", "Forecasting"],
+      "Predictive systems for forecasting, anomaly detection, and operational planning, deployed with monitoring and governance from day one.",
   },
   {
     icon: Zap,
     label: "Intelligent Automation & Agentic Systems",
     description:
-      "Enterprise RAG architectures, LangGraph orchestration, production OCR ingestion pipelines, and autonomous document processing workflows.",
-    tags: ["LangGraph", "LangChain", "RAG Systems"],
+      "Agentic automation for document-heavy operations, including data intake, verification, and handoff into core business workflows.",
   },
   {
     icon: Database,
     label: "Data Engineering & Cloud Infrastructure",
     description:
-      "Scalable ETL/ELT pipelines, audited cloud warehouse architecture, secure ERP integrations (SAP, Oracle), and full data lifecycle governance.",
-    tags: ["Snowflake", "BigQuery", "dbt", "Airflow"],
+      "Cloud data platforms, reliable pipelines, and secure ERP integrations that keep analytics and reporting accurate as operations scale.",
   },
   {
     icon: Eye,
     label: "Computer Vision & Signal Processing",
     description:
-      "Fourier analysis, Wiener filtering, real-time image restoration, QR deblurring, and automated quality inspection arrays—engineered for the edge.",
-    tags: ["OpenCV", "Fourier Analysis", "Edge Inference"],
+      "Production vision systems for quality inspection and tracking where speed, reliability, and practical deployment constraints matter.",
   },
   {
     icon: Layers,
-    label: "MLOps & Systems Resilience",
+    label: "Production Systems & Resilience",
     description:
-      "Full containerization, CI/CD automation, model drift monitoring, automated validation frameworks, and cloud cost optimization strategies.",
-    tags: ["Docker", "GitHub Actions", "AWS", "GCP"],
+      "Containerized deployment, CI/CD automation, monitoring, and cost control to keep production systems stable over time.",
   },
 ];
 
@@ -79,7 +73,7 @@ const verticals = [
     icon: GitBranch,
     label: "Logistics, Supply Chain & Fleet",
     value:
-      "Maximize haul margins, resolve routing bottlenecks under complex physical constraints, and mitigate supply chain variability with real-time LP engines.",
+      "Maximize haul margins, resolve routing bottlenecks under complex physical constraints, and reduce supply chain volatility with real-time optimization engines.",
     color: "#7B5CF0",
   },
   {
@@ -110,9 +104,9 @@ const caseStudies = [
   },
   {
     tag: "Logistics",
-    title: "Constraint-Aware LP Margin Optimization Engine",
+    title: "Constraint-Aware Margin Optimization Engine",
     problem: "Dynamic shipping variables eroding line-haul margins across complex fulfillment networks.",
-    outcome: "Custom LP algorithm balancing route constraints, fuel overheads, and real-time carrier pricing.",
+    outcome: "Custom optimization engine balancing route constraints, fuel overheads, and real-time carrier pricing.",
     metric: "+17%",
     metricLabel: "Margin Uplift",
     color: "#7B5CF0",
@@ -121,7 +115,7 @@ const caseStudies = [
     tag: "Enterprise Automation",
     title: "Intelligent Document Extraction & ERP Ingestion",
     problem: "Thousands of manual processing hours lost parsing variable vendor invoices and regulatory documents.",
-    outcome: "Resilient OCR pipeline via LangGraph, performing autonomous verification against database records.",
+    outcome: "Resilient OCR pipeline with agentic verification against internal database records.",
     metric: "10+ hrs",
     metricLabel: "Saved Per Week, Per Branch",
     color: "#0EA5E9",
@@ -130,7 +124,7 @@ const caseStudies = [
     tag: "Manufacturing",
     title: "Industrial Computer Vision & QA Array",
     problem: "Low-cost hardware capturing blurred tracking codes on high-velocity production lines.",
-    outcome: "Custom Fourier + Wiener deblurring system executed at the edge, eliminating specialized hardware.",
+    outcome: "Custom image-restoration pipeline deployed at the edge, eliminating specialized hardware.",
     metric: "−80%",
     metricLabel: "Hardware Cost Reduction",
     color: "#A78BFA",
@@ -138,10 +132,9 @@ const caseStudies = [
 ];
 
 const techStack = [
-  { category: "Data Ecosystem", items: ["Snowflake", "BigQuery", "PostgreSQL", "dbt", "Airflow"] },
-  { category: "AI & Modeling", items: ["PyTorch", "scikit-learn", "LangChain", "LangGraph", "OpenCV"] },
-  { category: "Languages", items: ["Python", "SQL", "R"] },
-  { category: "Cloud & MLOps", items: ["AWS", "GCP", "Vertex AI", "Docker", "GitHub Actions"] },
+  { category: "Cloud & Deployment", items: ["AWS", "Google Cloud Platform", "Kubernetes", "Docker", "GitHub Actions CI/CD", "Terraform"] },
+  { category: "Data Platforms", items: ["Snowflake", "BigQuery", "PostgreSQL", "Apache Airflow", "Apache Kafka"] },
+  { category: "ML Operations", items: ["AWS SageMaker", "Vertex AI", "MLflow", "Grafana"] },
 ];
 
 const engagementSteps = [
@@ -159,6 +152,7 @@ export default function HomePage() {
     <div style={{ background: "var(--c-obsidian)" }}>
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section
+        className="section-x"
         style={{
           position: "relative",
           minHeight: "100vh",
@@ -240,8 +234,8 @@ export default function HomePage() {
             lineHeight: 1.75,
             marginBottom: "2.5rem",
           }}>
-            Neural Vector Systems designs, builds, and deploys production-grade machine learning models,
-            mathematical optimization engines, and robust data pipelines that turn volatile scientific and
+            Neural Vector Systems designs, builds, and deploys predictive systems,
+            optimization engines, and robust data pipelines that turn volatile scientific and
             operational data into defensive business advantages.
           </p>
 
@@ -309,7 +303,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CORE EQUATION ─────────────────────────────────────────────────── */}
-      <section style={{ padding: "5rem 2rem", background: "rgba(7,14,28,0.8)" }}>
+      <section className="section-x" style={{ padding: "5rem 2rem", background: "rgba(7,14,28,0.8)" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ marginBottom: "3rem", textAlign: "center" }}>
             <span className="section-label">The Core Equation</span>
@@ -346,7 +340,7 @@ export default function HomePage() {
               {
                 icon: Cpu,
                 title: "Velocity at Scale",
-                body: "Agentic automation and MLOps architectures that compress manual processing timelines by orders of magnitude without sacrificing data integrity or governance controls.",
+                body: "Agentic automation and production operations architectures that compress manual processing timelines without sacrificing data integrity or governance controls.",
               },
             ].map((item) => (
               <div
@@ -382,7 +376,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CAPABILITIES ──────────────────────────────────────────────────── */}
-      <section style={{ padding: "6rem 2rem" }}>
+      <section className="section-x" style={{ padding: "6rem 2rem" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "3rem", flexWrap: "wrap", gap: "1rem" }}>
             <div>
@@ -406,7 +400,7 @@ export default function HomePage() {
 
           <div style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
             gap: "1rem",
           }}>
             {capabilities.map((cap) => (
@@ -440,26 +434,10 @@ export default function HomePage() {
                   color: "rgba(226,232,240,0.48)",
                   fontSize: "0.85rem",
                   lineHeight: 1.75,
-                  marginBottom: "1.25rem",
+                  marginBottom: 0,
                 }}>
                   {cap.description}
                 </p>
-                <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-                  {cap.tags.map((tag) => (
-                    <span key={tag} style={{
-                      fontFamily: "var(--font-ibm-mono), monospace",
-                      fontSize: "0.6rem",
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                      color: "rgba(0,212,255,0.6)",
-                      padding: "3px 8px",
-                      border: "1px solid rgba(0,212,255,0.15)",
-                      borderRadius: "2px",
-                    }}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
             ))}
           </div>
@@ -467,7 +445,7 @@ export default function HomePage() {
       </section>
 
       {/* ── INDUSTRY VERTICALS ────────────────────────────────────────────── */}
-      <section style={{ padding: "6rem 2rem", background: "rgba(7,14,28,0.6)" }}>
+      <section className="section-x" style={{ padding: "6rem 2rem", background: "rgba(7,14,28,0.6)" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
             <span className="section-label">Industry Frameworks</span>
@@ -488,7 +466,7 @@ export default function HomePage() {
               fontSize: "0.9rem",
               lineHeight: 1.7,
             }}>
-              The same mathematical principles—linear programming, Fourier transforms, multi-stage regression—applied cross-domain to solve high-value operational problems.
+              The same underlying analytics principles applied cross-domain to solve high-value operational problems.
             </p>
           </div>
 
@@ -543,7 +521,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CASE STUDIES ──────────────────────────────────────────────────── */}
-      <section style={{ padding: "6rem 2rem" }}>
+      <section className="section-x" style={{ padding: "6rem 2rem" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "3rem", flexWrap: "wrap", gap: "1rem" }}>
             <div>
@@ -646,10 +624,10 @@ export default function HomePage() {
       </section>
 
       {/* ── TECH STACK ────────────────────────────────────────────────────── */}
-      <section style={{ padding: "5rem 2rem", background: "rgba(7,14,28,0.7)" }}>
+      <section className="section-x" style={{ padding: "5rem 2rem", background: "rgba(7,14,28,0.7)" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <span className="section-label">The Engineering Grid</span>
+            <span className="section-label">Platforms & Infrastructure</span>
             <h2 style={{
               fontFamily: "var(--font-syne), sans-serif",
               fontWeight: 700,
@@ -658,7 +636,7 @@ export default function HomePage() {
               marginTop: "0.75rem",
               letterSpacing: "-0.01em",
             }}>
-              Battle-Tested Technology Stack
+              Deployment-Ready Technology Platforms
             </h2>
           </div>
 
@@ -697,7 +675,7 @@ export default function HomePage() {
       </section>
 
       {/* ── ENGAGEMENT FLOW ───────────────────────────────────────────────── */}
-      <section style={{ padding: "6rem 2rem" }}>
+      <section className="section-x" style={{ padding: "6rem 2rem" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
             <span className="section-label">Consulting Engagement</span>
@@ -770,7 +748,7 @@ export default function HomePage() {
       </section>
 
       {/* ── FINAL CTA ─────────────────────────────────────────────────────── */}
-      <section style={{
+      <section className="section-x" style={{
         padding: "8rem 2rem",
         position: "relative",
         overflow: "hidden",

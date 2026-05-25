@@ -35,7 +35,7 @@ const expertiseDomains = [
   },
   {
     area: "Logistics & Operations Research",
-    desc: "Real-world routing, scheduling, and resource optimization problems share mathematical structure with biological pathway optimization. Constraint-aware LP models are the common language.",
+    desc: "Real-world routing, scheduling, and resource optimization problems share mathematical structure with biological pathway optimization. Constraint-aware optimization models are the common language.",
   },
   {
     area: "Process Manufacturing & Brewing",
@@ -51,7 +51,7 @@ export default function AboutPage() {
   return (
     <div style={{ background: "var(--c-obsidian)", paddingTop: "72px" }}>
       {/* Header */}
-      <section style={{
+      <section className="section-x" style={{
         padding: "5rem 2rem 4rem",
         borderBottom: "1px solid rgba(0,212,255,0.07)",
         position: "relative",
@@ -81,8 +81,8 @@ export default function AboutPage() {
       </section>
 
       {/* Manifesto */}
-      <section style={{ padding: "5rem 2rem" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "start" }}>
+      <section className="section-x" style={{ padding: "5rem 2rem" }}>
+        <div className="stack-below-md stack-below-md--gap-2" style={{ maxWidth: "1280px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "start" }}>
           <div>
             <span className="section-label" style={{ marginBottom: "1.25rem", display: "block" }}>The NVS Manifesto</span>
             <h2 style={{
@@ -98,7 +98,7 @@ export default function AboutPage() {
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
               {[
-                "The enterprise technology landscape has been flooded with AI marketing that confuses statistical models with operational solutions. Neural Vector Systems exists because production-grade intelligent systems require engineering discipline that is categorically different from research notebooks and demonstration prototypes.",
+                "The enterprise technology landscape has been flooded with AI marketing that confuses statistical models with operational solutions. Neural Vector Systems exists because reliable production systems require engineering discipline that is categorically different from research notebooks and demonstration prototypes.",
                 "We measure success in margin points recovered, hours eliminated, and error rates reduced—not in model accuracy on held-out test sets. Every algorithm we deploy is traceable to a business outcome, every architectural decision is justified in terms of operational risk.",
                 "Our cross-domain background is not a liability—it is the core value proposition. The same mathematical principles that govern multi-omics data analysis govern fermentation curve modeling and logistics constraint optimization. This structural fluency across domains enables us to bring proven frameworks from one vertical to unsolved problems in another.",
               ].map((para, i) => (
@@ -114,7 +114,7 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <span className="section-label" style={{ marginBottom: "1.25rem", display: "block" }}>Founder Track Record</span>
+            <span className="section-label" style={{ marginBottom: "1.25rem", display: "block" }}>How We Engineer</span>
             <div className="glass-card" style={{ padding: "2rem", borderRadius: "4px", marginBottom: "1rem" }}>
               <div style={{
                 fontFamily: "var(--font-ibm-mono), monospace",
@@ -125,10 +125,10 @@ export default function AboutPage() {
                 opacity: 0.7,
                 marginBottom: "0.75rem",
               }}>
-                Career Arc
+                Delivery Discipline
               </div>
               <p style={{ color: "rgba(226,232,240,0.55)", fontSize: "0.85rem", lineHeight: 1.8 }}>
-                Began at the intersection of computational biology and data infrastructure—architecting systems to handle the most complex and high-dimensional datasets in modern science. This foundation in scientific rigor, data governance, and production-grade engineering discipline migrated directly into enterprise operational systems.
+                We build systems the same way across every engagement: define the operational objective, design the data and cloud foundation, deploy in production safely, and measure business impact continuously. That discipline keeps projects practical, auditable, and sustainable after launch.
               </p>
               <div style={{
                 marginTop: "1.5rem",
@@ -139,10 +139,10 @@ export default function AboutPage() {
                 gap: "0.6rem",
               }}>
                 {[
-                  "Applied ML systems across logistics, life sciences, and manufacturing",
-                  "Mathematical optimization frameworks deployed in production OR environments",
-                  "Enterprise data infrastructure at regulated-industry scale",
-                  "Agentic automation pipelines for document-heavy operational workflows",
+                  "Production deployments on AWS and Google Cloud with clear ownership and operational runbooks",
+                  "Enterprise data platforms designed for reliability, governance, and regulatory requirements",
+                  "Optimization and predictive systems tied to measurable margin, risk, and speed outcomes",
+                  "Agentic automation integrated into existing ERP and document workflows",
                 ].map((item) => (
                   <div key={item} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start" }}>
                     <Cpu size={12} color="#00D4FF" style={{ flexShrink: 0, marginTop: "3px", opacity: 0.6 }} />
@@ -156,7 +156,7 @@ export default function AboutPage() {
       </section>
 
       {/* Pillars */}
-      <section style={{ padding: "5rem 2rem", background: "rgba(7,14,28,0.6)" }}>
+      <section className="section-x" style={{ padding: "5rem 2rem", background: "rgba(7,14,28,0.6)" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
             <span className="section-label">Execution Pillars</span>
@@ -193,7 +193,7 @@ export default function AboutPage() {
       </section>
 
       {/* Cross-domain expertise */}
-      <section style={{ padding: "5rem 2rem" }}>
+      <section className="section-x" style={{ padding: "5rem 2rem" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ marginBottom: "3rem" }}>
             <span className="section-label">Multidisciplinary Agility</span>
@@ -213,6 +213,7 @@ export default function AboutPage() {
             {expertiseDomains.map((domain, i) => (
               <div
                 key={domain.area}
+                className="stack-below-md"
                 style={{
                   padding: "2rem",
                   borderTop: i === 0 ? "1px solid rgba(0,212,255,0.08)" : "none",
@@ -239,7 +240,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: "5rem 2rem", textAlign: "center" }}>
+      <section className="section-x" style={{ padding: "5rem 2rem", textAlign: "center" }}>
         <h2 style={{
           fontFamily: "var(--font-syne), sans-serif",
           fontWeight: 700,

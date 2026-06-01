@@ -14,7 +14,6 @@
 # Misc
 .DS_Store
 *.pem
-*.png
 .env
 .env.local
 .env.development.local

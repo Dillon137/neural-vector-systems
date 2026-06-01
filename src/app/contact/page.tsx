@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowRight, Mail, Linkedin } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowRight, ChevronDown, Mail, Linkedin } from "lucide-react";
 
 const LINKEDIN_URL = "https://www.linkedin.com/company/neural-vector-systems/";
 const CONTACT_EMAIL = "dmherbst@neuralvectorsystems.com";
@@ -27,6 +27,19 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [bottleneckOpen, setBottleneckOpen] = useState(false);
+  const bottleneckRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!bottleneckOpen) return;
+    const close = (e: MouseEvent) => {
+      if (bottleneckRef.current && !bottleneckRef.current.contains(e.target as Node)) {
+        setBottleneckOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", close);
+    return () => document.removeEventListener("mousedown", close);
+  }, [bottleneckOpen]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -228,7 +241,7 @@ export default function ContactPage() {
                         onChange={(e) => setForm({ ...form, [field.key]: e.target.value })}
                         style={{
                           width: "100%",
-                          background: "rgba(0,0,0,0.3)",
+                          background: "var(--c-field-bg)",
                           border: "1px solid rgba(0,212,255,0.12)",
                           borderRadius: "3px",
                           padding: "10px 14px",
@@ -264,7 +277,7 @@ export default function ContactPage() {
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     style={{
                       width: "100%",
-                      background: "rgba(0,0,0,0.3)",
+                      background: "var(--c-field-bg)",
                       border: "1px solid rgba(0,212,255,0.12)",
                       borderRadius: "3px",
                       padding: "10px 14px",
@@ -291,27 +304,93 @@ export default function ContactPage() {
                   }}>
                     Primary Operational Bottleneck
                   </label>
-                  <select
-                    value={form.bottleneck}
-                    onChange={(e) => setForm({ ...form, bottleneck: e.target.value })}
-                    style={{
-                      width: "100%",
-                      background: "rgba(0,0,0,0.3)",
-                      border: "1px solid rgba(0,212,255,0.12)",
-                      borderRadius: "3px",
-                      padding: "10px 14px",
-                      color: form.bottleneck ? "#E2E8F0" : "rgba(226,232,240,0.35)",
-                      fontSize: "0.875rem",
-                      fontFamily: "var(--font-outfit), sans-serif",
-                      outline: "none",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <option value="" disabled>Select a domain...</option>
-                    {bottlenecks.map((b) => (
-                      <option key={b} value={b} style={{ background: "#0A1628", color: "#E2E8F0" }}>{b}</option>
-                    ))}
-                  </select>
+                  <div ref={bottleneckRef} style={{ position: "relative" }}>
+                    <button
+                      type="button"
+                      aria-haspopup="listbox"
+                      aria-expanded={bottleneckOpen}
+                      onClick={() => setBottleneckOpen((open) => !open)}
+                      style={{
+                        width: "100%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        gap: "0.75rem",
+                        background: "var(--c-field-bg)",
+                        border: `1px solid ${bottleneckOpen ? "rgba(0,212,255,0.4)" : "rgba(0,212,255,0.12)"}`,
+                        borderRadius: "3px",
+                        padding: "10px 14px",
+                        color: form.bottleneck ? "#E2E8F0" : "rgba(226,232,240,0.35)",
+                        fontSize: "0.875rem",
+                        fontFamily: "var(--font-outfit), sans-serif",
+                        outline: "none",
+                        cursor: "pointer",
+                        textAlign: "left",
+                      }}
+                    >
+                      <span style={{ flex: 1, lineHeight: 1.4 }}>
+                        {form.bottleneck || "Select a domain..."}
+                      </span>
+                      <ChevronDown
+                        size={16}
+                        color="rgba(0,212,255,0.7)"
+                        style={{
+                          flexShrink: 0,
+                          transform: bottleneckOpen ? "rotate(180deg)" : "none",
+                          transition: "transform 0.2s ease",
+                        }}
+                      />
+                    </button>
+                    {bottleneckOpen && (
+                      <ul
+                        role="listbox"
+                        style={{
+                          position: "absolute",
+                          zIndex: 20,
+                          top: "calc(100% + 4px)",
+                          left: 0,
+                          right: 0,
+                          margin: 0,
+                          padding: "4px 0",
+                          listStyle: "none",
+                          background: "var(--c-field-bg)",
+                          border: "1px solid rgba(0,212,255,0.12)",
+                          borderRadius: "3px",
+                          maxHeight: "240px",
+                          overflowY: "auto",
+                        }}
+                      >
+                        {bottlenecks.map((b) => {
+                          const selected = form.bottleneck === b;
+                          return (
+                            <li key={b} role="option" aria-selected={selected}>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setForm({ ...form, bottleneck: b });
+                                  setBottleneckOpen(false);
+                                }}
+                                style={{
+                                  width: "100%",
+                                  textAlign: "left",
+                                  padding: "10px 14px",
+                                  border: "none",
+                                  background: selected ? "rgba(0,212,255,0.12)" : "rgba(0,0,0,0.3)",
+                                  color: "#E2E8F0",
+                                  fontSize: "0.875rem",
+                                  fontFamily: "var(--font-outfit), sans-serif",
+                                  lineHeight: 1.4,
+                                  cursor: "pointer",
+                                }}
+                              >
+                                {b}
+                              </button>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
+                  </div>
                 </div>
 
                 <div style={{ marginBottom: "2rem" }}>
@@ -333,7 +412,7 @@ export default function ContactPage() {
                     onChange={(e) => setForm({ ...form, details: e.target.value })}
                     style={{
                       width: "100%",
-                      background: "rgba(0,0,0,0.3)",
+                      background: "var(--c-field-bg)",
                       border: "1px solid rgba(0,212,255,0.12)",
                       borderRadius: "3px",
                       padding: "10px 14px",

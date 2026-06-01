@@ -61,7 +61,6 @@ const caseStudies = [
     metricLabel: "Saved Per Week / Branch",
     outcomes: [
       "Full automation of straight-through invoice processing for conforming documents",
-      "Data entry error rates reduced by 94% versus manual processing baseline",
       "10+ operational hours recaptured per branch per week—redeployed to exception management",
     ],
   },
@@ -83,7 +82,7 @@ const caseStudies = [
     outcomes: [
       "80% reduction in hardware implementation overhead versus specialized camera deployment",
       "Code read success rate exceeding 98.5% at production line speed on commodity hardware",
-      "Fully edge-deployed—no cloud inference latency, compatible with air-gapped factory networks",
+      "Fully edge-deployed: no cloud inference latency, compatible with air-gapped factory networks",
     ],
   },
 ];

@@ -35,7 +35,6 @@ src/
 │   ├── case-studies/page.tsx # Full case study documents
 │   ├── technologies/page.tsx # Technology stack grid
 │   ├── about/page.tsx        # NVS philosophy & founder background
-│   ├── insights/page.tsx     # Technical blog article listing
 │   ├── contact/page.tsx      # Inquiry form
 │   ├── layout.tsx            # Root layout (Navbar, Footer)
 │   ├── globals.css           # Global styles, CSS variables, utilities
@@ -77,10 +76,7 @@ Convert the component and use a `<form action={serverAction}>` pattern.
 ### 3. Add Your Logo Image
 Place your logo file at `public/images/branding/logo.png` and update the SVG logo in `src/components/layout/Navbar.tsx` (around line 40) to use `<Image>` instead.
 
-### 4. Insights Articles
-Each insight card links to `/insights/[slug]`. Create `src/app/insights/[slug]/page.tsx` with MDX or markdown-based rendering, or use a CMS like Contentlayer or Sanity.
-
-### 5. SEO Metadata
+### 4. SEO Metadata
 Update `src/app/layout.tsx` metadata with your final domain and Open Graph image once live.
 
 ---
@@ -106,6 +102,9 @@ npm run build
 npm run start  # Runs on port 3000
 ```
 Use nginx or Caddy as a reverse proxy.
+
+### S3 + CloudFront (static export)
+After `npm run build`, upload the `out/` folder. In CloudFront **Error pages**, map **403** and **404** to `/404.html` with response code **200** so missing URLs show the themed 404 page instead of S3 XML.
 
 ---
 

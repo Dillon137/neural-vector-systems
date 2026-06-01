@@ -137,21 +137,15 @@ export default function ParticleField() {
       mouseRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
     };
 
-    const onMouseLeave = () => {
-      mouseRef.current = { x: -9999, y: -9999 };
-    };
-
     window.addEventListener("resize", resize);
-    canvas.addEventListener("mousemove", onMouseMove);
-    canvas.addEventListener("mouseleave", onMouseLeave);
+    window.addEventListener("mousemove", onMouseMove);
 
     resize();
     animRef.current = requestAnimationFrame(draw);
 
     return () => {
       window.removeEventListener("resize", resize);
-      canvas.removeEventListener("mousemove", onMouseMove);
-      canvas.removeEventListener("mouseleave", onMouseLeave);
+      window.removeEventListener("mousemove", onMouseMove);
       cancelAnimationFrame(animRef.current);
     };
   }, []);
@@ -164,7 +158,7 @@ export default function ParticleField() {
         inset: 0,
         width: "100%",
         height: "100%",
-        pointerEvents: "all",
+        pointerEvents: "none",
       }}
     />
   );

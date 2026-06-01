@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const LOGO = {
-  src: "/images/branding/logo.png",
+  src: "/images/branding/logo_transparent_white.png",
   width: 1402,
   height: 699,
 } as const;
@@ -13,7 +13,6 @@ const footerLinks = {
   Company: [
     { label: "About", href: "/about" },
     { label: "Technologies", href: "/technologies" },
-    { label: "Insights", href: "/insights" },
     { label: "Contact", href: "/contact" },
   ],
   Services: [
@@ -57,9 +56,9 @@ export default function Footer() {
                 width={LOGO.width}
                 height={LOGO.height}
                 style={{
-                  height: "44px",
+                  height: "100px",
                   width: "auto",
-                  maxWidth: "260px",
+                  maxWidth: "400px",
                 }}
               />
             </Link>
@@ -73,34 +72,33 @@ export default function Footer() {
               Enterprise-grade AI, optimization, and data systems engineering for complex operational challenges.
             </p>
             <div style={{ display: "flex", gap: "1rem" }}>
-              {["LinkedIn", "GitHub"].map((platform) => (
-                <a
-                  key={platform}
-                  href="#"
-                  style={{
-                    fontFamily: "var(--font-ibm-mono), monospace",
-                    fontSize: "0.65rem",
-                    letterSpacing: "0.15em",
-                    textTransform: "uppercase",
-                    color: "rgba(0,212,255,0.6)",
-                    textDecoration: "none",
-                    padding: "6px 12px",
-                    border: "1px solid rgba(0,212,255,0.2)",
-                    borderRadius: "2px",
-                    transition: "all 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(0,212,255,0.5)";
-                    e.currentTarget.style.color = "#00D4FF";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(0,212,255,0.2)";
-                    e.currentTarget.style.color = "rgba(0,212,255,0.6)";
-                  }}
-                >
-                  {platform}
-                </a>
-              ))}
+              <a
+                href="https://www.linkedin.com/company/neural-vector-systems/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontFamily: "var(--font-ibm-mono), monospace",
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  color: "rgba(0,212,255,0.6)",
+                  textDecoration: "none",
+                  padding: "6px 12px",
+                  border: "1px solid rgba(0,212,255,0.2)",
+                  borderRadius: "2px",
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = "rgba(0,212,255,0.5)";
+                  e.currentTarget.style.color = "#00D4FF";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "rgba(0,212,255,0.2)";
+                  e.currentTarget.style.color = "rgba(0,212,255,0.6)";
+                }}
+              >
+                LinkedIn
+              </a>
             </div>
           </div>
 

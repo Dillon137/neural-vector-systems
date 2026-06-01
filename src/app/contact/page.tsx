@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Mail, Linkedin, Github } from "lucide-react";
+import { ArrowRight, Mail, Linkedin } from "lucide-react";
+
+const LINKEDIN_URL = "https://www.linkedin.com/company/neural-vector-systems/";
+const CONTACT_EMAIL = "dmherbst@neuralvectorsystems.com";
 
 const bottlenecks = [
   "Mathematical Optimization & Operations Research",
@@ -22,12 +25,34 @@ export default function ContactPage() {
     details: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.MouseEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Replace with your form submission logic (e.g., API route, Resend, Formspree)
-    console.log("Form submitted:", form);
-    setSubmitted(true);
+    setSubmitError(null);
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setSubmitError(
+          typeof data.error === "string"
+            ? data.error
+            : "Something went wrong. Please email us directly."
+        );
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Something went wrong. Please email us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -108,13 +133,14 @@ export default function ContactPage() {
             <div className="glass-card" style={{ padding: "2rem", borderRadius: "4px" }}>
               <div className="section-label" style={{ marginBottom: "1.25rem" }}>Direct Channels</div>
               {[
-                { icon: Mail, label: "hello@neuralvectorsystems.com", href: "mailto:hello@neuralvectorsystems.com" },
-                { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
-                { icon: Github, label: "GitHub", href: "https://github.com" },
+                { icon: Mail, label: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
+                { icon: Linkedin, label: "LinkedIn", href: LINKEDIN_URL, external: true },
               ].map((channel) => (
                 <a
                   key={channel.label}
                   href={channel.href}
+                  target={channel.external ? "_blank" : undefined}
+                  rel={channel.external ? "noopener noreferrer" : undefined}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -166,7 +192,7 @@ export default function ContactPage() {
                 </p>
               </div>
             ) : (
-              <div>
+              <form onSubmit={handleSubmit}>
                 <h2 style={{
                   fontFamily: "var(--font-syne), sans-serif",
                   fontWeight: 700,
@@ -323,14 +349,29 @@ export default function ContactPage() {
                   />
                 </div>
 
+                {submitError && (
+                  <p style={{
+                    color: "rgba(248,113,113,0.9)",
+                    fontSize: "0.85rem",
+                    marginBottom: "1rem",
+                    lineHeight: 1.6,
+                  }}>
+                    {submitError}{" "}
+                    <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: "#00D4FF" }}>
+                      {CONTACT_EMAIL}
+                    </a>
+                  </p>
+                )}
+
                 <button
-                  onClick={handleSubmit}
+                  type="submit"
+                  disabled={submitting}
                   className="btn-primary"
-                  style={{ width: "100%", justifyContent: "center" }}
+                  style={{ width: "100%", justifyContent: "center", opacity: submitting ? 0.7 : 1 }}
                 >
-                  Submit Inquiry <ArrowRight size={16} />
+                  {submitting ? "Sending…" : "Submit Inquiry"} <ArrowRight size={16} />
                 </button>
-              </div>
+              </form>
             )}
           </div>
         </div>

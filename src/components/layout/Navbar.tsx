@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const LOGO = {
-  src: "/images/branding/logo.png",
+  src: "/images/branding/logo_transparent_white.png",
   width: 1402,
   height: 699,
 } as const;
@@ -17,7 +17,6 @@ const navLinks = [
   { label: "Case Studies", href: "/case-studies" },
   { label: "Technologies", href: "/technologies" },
   { label: "About", href: "/about" },
-  { label: "Insights", href: "/insights" },
 ];
 
 export default function Navbar() {
@@ -56,7 +55,7 @@ export default function Navbar() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          height: "72px",
+          height: "100px",
         }}
       >
         {/* Logo */}
@@ -68,15 +67,15 @@ export default function Navbar() {
             height={LOGO.height}
             priority
             style={{
-              height: "48px",
+              height: "100px",
               width: "auto",
-              maxWidth: "min(280px, 55vw)",
+              maxWidth: "min(420px, 62vw)",
             }}
           />
         </Link>
 
         {/* Desktop Nav */}
-        <nav style={{ display: "flex", alignItems: "center", gap: "2rem" }} className="hidden md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -105,9 +104,11 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setOpen(!open)}
-          style={{ background: "none", border: "none", cursor: "pointer", color: "#E2E8F0", display: "none" }}
-          className="md:hidden"
+          type="button"
+          style={{ background: "none", border: "none", cursor: "pointer", color: "#E2E8F0" }}
+          className="flex shrink-0 md:hidden"
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -115,7 +116,9 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div style={{
+        <div
+          className="md:hidden"
+          style={{
           background: "rgba(5,10,20,0.98)",
           backdropFilter: "blur(20px)",
           borderTop: "1px solid rgba(0,212,255,0.1)",

@@ -78,9 +78,9 @@ const verticals = [
   },
   {
     icon: BarChart2,
-    label: "Process Manufacturing & Brewing",
+    label: "Process Manufacturing",
     value:
-      "Model fermentation curves, optimize ingredient utilization, deploy sensor-based anomaly detection, and vision-based quality control on production floors.",
+      "Model process dynamics, optimize material utilization, deploy sensor-based anomaly detection, and vision-based quality control on production floors.",
     color: "#0EA5E9",
   },
   {

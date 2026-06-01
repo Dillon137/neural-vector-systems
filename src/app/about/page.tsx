@@ -38,8 +38,8 @@ const expertiseDomains = [
     desc: "Real-world routing, scheduling, and resource optimization problems share mathematical structure with biological pathway optimization. Constraint-aware optimization models are the common language.",
   },
   {
-    area: "Process Manufacturing & Brewing",
-    desc: "Fermentation curve modeling, sensor-based anomaly detection, and yield optimization map directly to continuous process monitoring challenges across pharmaceutical and chemical manufacturing.",
+    area: "Process Manufacturing",
+    desc: "Process curve modeling, sensor-based anomaly detection, and yield optimization map directly to continuous process monitoring challenges across pharmaceutical and chemical manufacturing.",
   },
   {
     area: "Enterprise Automation",
@@ -100,7 +100,7 @@ export default function AboutPage() {
               {[
                 "The enterprise technology landscape has been flooded with AI marketing that confuses statistical models with operational solutions. Neural Vector Systems exists because reliable production systems require engineering discipline that is categorically different from research notebooks and demonstration prototypes.",
                 "We measure success in margin points recovered, hours eliminated, and error rates reduced—not in model accuracy on held-out test sets. Every algorithm we deploy is traceable to a business outcome, every architectural decision is justified in terms of operational risk.",
-                "Our cross-domain background is not a liability—it is the core value proposition. The same mathematical principles that govern multi-omics data analysis govern fermentation curve modeling and logistics constraint optimization. This structural fluency across domains enables us to bring proven frameworks from one vertical to unsolved problems in another.",
+                "Our cross-domain background is not a liability—it is the core value proposition. The same mathematical principles that govern multi-omics data analysis govern process curve modeling and logistics constraint optimization. This structural fluency across domains enables us to bring proven frameworks from one vertical to unsolved problems in another.",
               ].map((para, i) => (
                 <p key={i} style={{
                   color: "rgba(226,232,240,0.55)",

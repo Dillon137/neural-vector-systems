@@ -48,20 +48,20 @@ const solutions = [
     id: "manufacturing",
     icon: BarChart2,
     color: "#0EA5E9",
-    tag: "Process Manufacturing & Brewing",
+    tag: "Process Manufacturing",
     title: "Sensor Intelligence for Process Optimization",
     intro: "Process manufacturing generates continuous sensor telemetry that represents an untapped reservoir of predictive intelligence. Neural Vector Systems converts raw process data into closed-loop optimization and anomaly detection systems.",
     challenges: [
-      "Fermentation and reaction curves with complex, non-linear dynamics",
+      "Reaction and process curves with complex, non-linear dynamics",
       "Sensor drift and noise obscuring early-warning anomaly signals",
       "Manual quality control creating sampling bottlenecks on high-velocity lines",
-      "Yield losses from suboptimal ingredient ratios or batch timing decisions",
+      "Yield losses from suboptimal input ratios or batch timing decisions",
     ],
     approaches: [
-      "Multivariate time-series regression for fermentation curve modeling",
+      "Multivariate time-series regression for process curve modeling",
       "Statistical process control with adaptive anomaly detection thresholds",
       "Edge-deployed computer vision for high-velocity production line QA",
-      "Ingredient optimization models targeting yield maximization under cost constraints",
+      "Input optimization models targeting yield maximization under cost constraints",
     ],
     outcome: "Sensor-based early warning of process deviations before they reach critical thresholds. Vision-based QA automation replacing manual inspection sampling.",
   },
@@ -124,7 +124,7 @@ export default function SolutionsPage() {
             lineHeight: 1.75,
             maxWidth: "600px",
           }}>
-            The same mathematical frameworks—deployed in the language of your specific industry. We speak logistics margin and fermentation curves and clinical confidence intervals.
+            The same mathematical frameworks—deployed in the language of your specific industry. We speak logistics margin and process dynamics and clinical confidence intervals.
           </p>
         </div>
       </section>

@@ -58,20 +58,12 @@ Update the following in `src/components/layout/Footer.tsx`:
 - Replace `hello@neuralvectorsystems.com` with your actual email
 - Update LinkedIn and GitHub hrefs
 
-### 2. Contact Form Submission
-The form in `src/app/contact/page.tsx` logs to console by default. Replace the `handleSubmit` function with your preferred submission method:
+### 2. Contact Form (Resend)
+The form posts to `src/app/api/contact/route.ts`. Copy `.env.example` to `.env` locally and set:
 
-**Option A — Resend (recommended)**
-```bash
-npm install resend
-```
-Create `src/app/api/contact/route.ts` and call it from the form.
-
-**Option B — Formspree**
-Replace `handleSubmit` with a standard `fetch` POST to your Formspree endpoint.
-
-**Option C — Next.js Server Action**
-Convert the component and use a `<form action={serverAction}>` pattern.
+- `RESEND_API_KEY`
+- `INQUIRY_TO`
+- `RESEND_FROM_EMAIL` (optional; defaults to Resend test sender)
 
 ### 3. Add Your Logo Image
 Place your logo file at `public/images/branding/logo.png` and update the SVG logo in `src/components/layout/Navbar.tsx` (around line 40) to use `<Image>` instead.
@@ -83,18 +75,16 @@ Update `src/app/layout.tsx` metadata with your final domain and Open Graph image
 
 ## Deployment
 
-### Vercel (Recommended)
-```bash
-npm install -g vercel
-vercel
-```
-Or connect your GitHub repo directly at vercel.com — zero-config Next.js deployment.
+### AWS Amplify Hosting (recommended)
+This app uses Next.js API routes (`/api/contact`) and must be deployed with SSR, not static export.
 
-### Cloudflare Pages
-```bash
-npm run build
-# Deploy the `.next` output via Cloudflare Pages with Next.js preset
-```
+1. In [AWS Amplify Console](https://console.aws.amazon.com/amplify/), connect this repository and branch.
+2. Amplify detects Next.js; `amplify.yml` in the repo runs `npm ci` and `npm run build`.
+3. Under **Environment variables**, add the same keys as `.env.example` (`RESEND_API_KEY`, `INQUIRY_TO`, `RESEND_FROM_EMAIL`).
+4. Deploy, then test the contact form on the Amplify URL before switching DNS from S3/CloudFront.
+
+### Vercel
+Connect the repo at [vercel.com](https://vercel.com) or run `vercel` — set the same Resend env vars in the project settings.
 
 ### Self-hosted
 ```bash
@@ -102,9 +92,6 @@ npm run build
 npm run start  # Runs on port 3000
 ```
 Use nginx or Caddy as a reverse proxy.
-
-### S3 + CloudFront (static export)
-After `npm run build`, upload the `out/` folder. In CloudFront **Error pages**, map **403** and **404** to `/404.html` with response code **200** so missing URLs show the themed 404 page instead of S3 XML.
 
 ---
 
